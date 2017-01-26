@@ -40,7 +40,7 @@ public class settings {
         String b = p.getProperty("lastImagePath");
         String c = p.getProperty("resizeFactor");
         String d = p.getProperty("offsetX");
-        String e = p.getProperty("offsetX");
+        String e = p.getProperty("offsetY");
 
         form.updateSetting(a, b, c, d, e);
 
