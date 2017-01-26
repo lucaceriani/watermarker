@@ -2,17 +2,16 @@ package com.c3ry.watermarker;
 
 import com.c3ry.watermarker.gui.Form1;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.Properties;
 
 public class settings {
 
-    public String path = System.getProperty("user.home") + File.separator +".watermarker";
-    public String fileName = "wm_config.properties";
-    public String f = path+File.separator+fileName;
+    private final String path = System.getProperty("user.home") + File.separator +".watermarker";
+    private final String fileName = "wm_config.properties";
+    private final String f = path+File.separator+fileName;
 
-    public int fileExist=0;
+    private int fileExist=0;
 
     public void checkExistence() {
         File fi = new File(f);
@@ -35,26 +34,24 @@ public class settings {
 
         try {
             p.load(is);
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
 
         String a = p.getProperty("lastFolderPath");
         String b = p.getProperty("lastImagePath");
         String c = p.getProperty("resizeFactor");
+        String d = p.getProperty("offsetX");
+        String e = p.getProperty("offsetX");
 
-        form.updateSetting(a, b, c);
+        form.updateSetting(a, b, c, d, e);
 
     }
 
 
     public boolean getExistence() {
-        if (fileExist==1) {
-            return true;
-        } else {
-            return false;
-        }
+        return fileExist == 1;
     }
 
-    public void saveConfig(String lastFolderPath, String lastImagePath, String resizeFactor) {
+    public void saveConfig(String lastFolderPath, String lastImagePath, String resizeFactor, String offsetX, String offsetY) {
 
         File theDir = new File(path);
 
@@ -67,6 +64,8 @@ public class settings {
             p.setProperty("lastFolderPath", lastFolderPath);
             p.setProperty("lastImagePath", lastImagePath);
             p.setProperty("resizeFactor", resizeFactor);
+            p.setProperty("offsetX", offsetX);
+            p.setProperty("offsetY", offsetY);
 
             OutputStream out = new FileOutputStream(f);
 
