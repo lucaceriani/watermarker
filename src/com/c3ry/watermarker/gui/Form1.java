@@ -49,7 +49,7 @@ public class Form1 {
             } else if (immWatermark.getText().equals("seleziona un'immagine...")) {
                 JOptionPane.showMessageDialog(null, "Selezionare un'immagine di watermark!", "Errore", JOptionPane.ERROR_MESSAGE);
                 return;
-            } else if (Double.parseDouble(fattoreScala.getText())<0.01 || Double.parseDouble(fattoreScala.getText())>1) {
+            } else if (getResizeFactor()<0.01 || getResizeFactor()>1) {
                 JOptionPane.showMessageDialog(null, "Selezionare un fattore di scala valido! (0.01 - 1)", "Errore", JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -134,6 +134,9 @@ public class Form1 {
     }
 
     private double getResizeFactor() {
+        if (fattoreScala.getText().equals("")) {
+            fattoreScala.setText("1");
+        }
         return Double.parseDouble(fattoreScala.getText());
     }
 
@@ -163,10 +166,16 @@ public class Form1 {
     }
 
     public int getOffsetX() {
+        if (txtOffsetX.getText().equals("")) {
+            txtOffsetX.setText("0");
+        }
         return Integer.parseInt(txtOffsetX.getText());
     }
 
     public int getOffsetY() {
+        if (txtOffsetY.getText().equals("")) {
+            txtOffsetY.setText("0");
+        }
         return Integer.parseInt(txtOffsetY.getText());
     }
 
