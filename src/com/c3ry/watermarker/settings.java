@@ -41,8 +41,9 @@ public class settings {
         String c = p.getProperty("resizeFactor");
         String d = p.getProperty("offsetX");
         String e = p.getProperty("offsetY");
+        String f = p.getProperty("position");
 
-        form.updateSetting(a, b, c, d, e);
+        form.updateSetting(a, b, c, d, e, f);
 
     }
 
@@ -51,7 +52,7 @@ public class settings {
         return fileExist == 1;
     }
 
-    public void saveConfig(String lastFolderPath, String lastImagePath, String resizeFactor, String offsetX, String offsetY) {
+    public void saveConfig(String lastFolderPath, String lastImagePath, String resizeFactor, String offsetX, String offsetY, String position) {
 
         File theDir = new File(path);
 
@@ -66,6 +67,7 @@ public class settings {
             p.setProperty("resizeFactor", resizeFactor);
             p.setProperty("offsetX", offsetX);
             p.setProperty("offsetY", offsetY);
+            p.setProperty("position", position);
 
             OutputStream out = new FileOutputStream(f);
 

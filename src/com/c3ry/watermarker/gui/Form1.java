@@ -57,7 +57,7 @@ public class Form1 {
             // Save the setting
             settings set = new settings();
             set.checkExistence();
-            set.saveConfig(immOriginale.getText(), immWatermark.getText(), fattoreScala.getText() , txtOffsetX.getText(), txtOffsetY.getText());
+            set.saveConfig(immOriginale.getText(), immWatermark.getText(), fattoreScala.getText() , txtOffsetX.getText(), txtOffsetY.getText(), getPosition()+"");
 
             File folder = new File(getInputOriginalImage());
             File[] listOfFiles = folder.listFiles();
@@ -144,12 +144,13 @@ public class Form1 {
         labelProgress.repaint();
     }
 
-    public void updateSetting(String a, String b, String c, String d, String e) {
+    public void updateSetting(String a, String b, String c, String d, String e, String f) {
         immOriginale.setText(a);
         immWatermark.setText(b);
         fattoreScala.setText(c);
         txtOffsetX.setText(d);
         txtOffsetY.setText(e);
+        setPosition(Integer.parseInt(f));
     }
 
     public int getPosition() {
@@ -177,6 +178,18 @@ public class Form1 {
             txtOffsetY.setText("0");
         }
         return Integer.parseInt(txtOffsetY.getText());
+    }
+
+    private void setPosition(int f) {
+        if (f==1) {radioButton1.setSelected(true);}
+        if (f==2) {radioButton2.setSelected(true);}
+        if (f==3) {radioButton3.setSelected(true);}
+        if (f==4) {radioButton4.setSelected(true);}
+        if (f==5) {radioButton5.setSelected(true);}
+        if (f==6) {radioButton6.setSelected(true);}
+        if (f==7) {radioButton7.setSelected(true);}
+        if (f==8) {radioButton8.setSelected(true);}
+        if (f==9) {radioButton9.setSelected(true);}
     }
 
 }
