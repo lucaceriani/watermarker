@@ -62,12 +62,12 @@ public class Form1 {
             File folder = new File(getInputOriginalImage());
             File[] listOfFiles = folder.listFiles();
 
-            String[] allFiles = new String[1000];
+            String[] allFiles = new String[999]; // posso tenere fino a 1000 file al massimo
             j=0;
             i=0;
 
             for (i=0; i<listOfFiles.length; i++) {
-                if (listOfFiles[i].isFile()) {
+                if (listOfFiles[i].isFile() && listOfFiles[i].getName().endsWith(".jpg")) { // prende solo i .jpg
                     allFiles[j] = listOfFiles[i].getName();
                     j++;
                 }

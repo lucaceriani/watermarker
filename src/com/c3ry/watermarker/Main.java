@@ -14,7 +14,7 @@ public class Main {
 
         frame.setContentPane(form.getPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Watermarker v0.4.2 - c3ry 2017");
+        frame.setTitle("Watermarker v0.4.3 - c3ry 2017");
 
         frame.pack();
 
